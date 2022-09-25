@@ -1,5 +1,5 @@
 [package]
-name = "RustPlay"
+name = "rust_play"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,3 +7,5 @@ edition = "2021"
 
 [dependencies]
 rodio = { version = "0.16.0", features = ["symphonia-all"] }
+glob = "0.3.0"
+walkdir = "2"

@@ -3,13 +3,6 @@
 version = 3
 
 [[package]]
-name = "RustPlay"
-version = "0.1.0"
-dependencies = [
- "rodio",
-]
-
-[[package]]
 name = "alsa"
 version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -634,6 +627,15 @@ dependencies = [
  "lewton",
  "minimp3",
  "symphonia",
+]
+
+[[package]]
+name = "rust_play"
+version = "0.1.0"
+dependencies = [
+ "glob",
+ "rodio",
+ "walkdir",
 ]
 
 [[package]]
