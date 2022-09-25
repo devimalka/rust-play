@@ -9,3 +9,5 @@ edition = "2021"
 rodio = { version = "0.16.0", features = ["symphonia-all"] }
 glob = "0.3.0"
 walkdir = "2"
+dirs = "4.0.0"
+audiotags = "0.4.1"

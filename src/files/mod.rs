@@ -1,4 +1,5 @@
-use walkdir::WalkDir;
+use walkdir::{WalkDir};
+use dirs;
 
 pub mod get_files{
 
@@ -7,7 +8,9 @@ pub mod get_files{
     pub fn get_mp3_files() -> Vec<String> {
         let mut file_list:Vec<String> = Vec::new();
 
-        for file in WalkDir::new("/home/imalka").into_iter().filter_map(|file| file.ok()){
+        let home_dir = dirs::home_dir().expect("Failed to read dir").into_os_string().into_string().unwrap();
+
+        for file in WalkDir::new(&home_dir).into_iter().filter_map(|file| file.ok()){
             if file.path().display().to_string().contains(".mp3"){
                 file_list.push(file.path().display().to_string());
             }
@@ -15,4 +18,9 @@ pub mod get_files{
 
         file_list
     }
+
+
+    
+
+   
 }
