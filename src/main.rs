@@ -6,7 +6,7 @@
 use rust_play::audio::playing;
 use rust_play::files::get_files;
 use audiotags::Tag;
-use std::io::ErroKind;
+use std::io::ErrorKind;
 
 #[allow(dead_code)]
 #[derive(Debug)]
@@ -43,13 +43,9 @@ fn create_song_struct(file_path:&str) {
 
   let tags = Tag::default().read_from_path(&file_path);
 
-
-  let tag = match tags{
-    Ok(tags) => tags,
-    Err(error) => match error.kind(){
-      ErroKind::Notag => println!("No tag found"),
-    }
-  };
+  let
+  
+  }
 
   // println!("{:?}",result);
   // // let title = tags.title().unwrap_or("Not found");
@@ -58,5 +54,4 @@ fn create_song_struct(file_path:&str) {
   
 
   // println!("title:{:?}\nartist:{:?}\ntrack:{:?}",title,artist,track);
-}
 
