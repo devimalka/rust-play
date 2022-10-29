@@ -23,35 +23,33 @@ fn main(){
 
     
   for file in files{
-    println!("{}",file);
-    create_song_struct(&file);
+  let song =    create_song_struct(&file);
+  println!("{0}=>{1}",song.title,song.artist);
+  playing::play_song(&song.file_path);
 
   }
-  
-
-
-
-
-
   
 }
 
 
 
 
-fn create_song_struct(file_path:&str) {
+fn create_song_struct(file_path:&str) -> Song{
 
   let tags = Tag::default().read_from_path(&file_path);
 
-  let
+  // let title = tags.expect("unable to found title").title().unwrap_or("no found");
+  let binding = tags.expect("unable to found title");
+  let title = binding.title().unwrap_or("no found");
+  let artist = binding.artist().unwrap_or("not found artist");
+ 
+  Song{
+    file_path:file_path.to_string(),
+    title:title.to_string(),
+    artist:artist.to_string(),
+    song_name:title.to_string(),
+  }
   
   }
 
-  // println!("{:?}",result);
-  // // let title = tags.title().unwrap_or("Not found");
-  // // let artist = tags.artist().unwrap_or("not found");
-  // // let track = tags.track().unwrap_or("not found");
   
-
-  // println!("title:{:?}\nartist:{:?}\ntrack:{:?}",title,artist,track);
-
