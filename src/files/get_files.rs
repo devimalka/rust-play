@@ -2,9 +2,6 @@ use walkdir::{WalkDir};
 use dirs;
 
 
-pub mod get_files{
-
-    use super::*;
 
     pub fn get_mp3_files() -> Vec<String> {
         let mut file_list:Vec<String> = Vec::new();
@@ -24,6 +21,4 @@ pub mod get_files{
 
     
             
-    }
-
    

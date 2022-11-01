@@ -3,22 +3,22 @@ use std::io::BufReader;
 use rodio::{Decoder,OutputStream};
 use rodio::Sink;
 
-pub mod playing{
+use crate::audio;
+use audio::Song::SongStruct;
 
-    use super::*;
-    pub fn play_song(song:&str){
+
+    pub fn play_song(song:SongStruct){
 
        
     let  (_stream,stream_handle) = OutputStream::try_default().unwrap();
-    let file = BufReader::new(fs::File::open(song).unwrap());
+    let file = BufReader::new(fs::File::open(song.file_path).unwrap());
     let sink = Sink::try_new(&stream_handle).unwrap();
     let source = Decoder::new(file).unwrap();
     sink.append(source);
-    // println!("Playing {}",&song.replace("_"," "));
+    println!("Playing {0}",song.title);
     sink.sleep_until_end();
 
 
 
 
-}
 }
