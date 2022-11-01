@@ -1,2 +1,2 @@
 # rust-play
-teminal mp3 player written in rust
+Terminal Mp3 Player Written In Rust
