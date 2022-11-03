@@ -1,37 +1,21 @@
-
-
 #[allow(unused_imports)]
 #[allow(non_snake_case)]
-
-
-
 mod audio;
 mod files;
+mod terminalui;
 
-use files::get_files;
 use audio::Playing;
-
+use files::get_files;
+use terminalui::ui;
 #[allow(dead_code)]
 
+fn main() {
+    // ui::ui();
+    let files = get_files::get_mp3_files();
 
-
-
-fn main(){
-
-  let files = get_files::get_mp3_files();
-
-    
-  for file in files{
-  let song = audio::Song::create_song_struct(&file);
-  Playing::play_song(song);
-
-  }
-  
+    let songs = audio::Song::song_vector(files);
+    ui::ui(songs);
+    // for song in songs{
+    //   println!("{0}",song.title);
+    // }
 }
-
-
-
-
-
-
-  
