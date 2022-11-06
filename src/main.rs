@@ -10,12 +10,12 @@ use terminalui::ui;
 #[allow(dead_code)]
 
 fn main() {
-    // ui::ui();
     let files = get_files::get_mp3_files();
 
     let songs = audio::Song::song_vector(files);
-    ui::ui(songs);
-    // for song in songs{
-    //   println!("{0}",song.title);
-    // }
+
+    for song in songs{
+        Playing::play_song(song);
+    }
+
 }

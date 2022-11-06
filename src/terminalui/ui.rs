@@ -28,7 +28,7 @@ pub fn ui(songs: Vec<SongStruct>) -> Result<(), io::Error> {
     let backend = CrosstermBackend::new(stdout);
     let mut terminal = Terminal::new(backend)?;
 
-    let mut song_vec_string:Vec<String> = songs.into_iter().map(|song| song.title).collect();
+    let  song_vec_string:Vec<String> = songs.into_iter().map(|song| song.title).collect();
 
     
     let song_list: Vec<_> = song_vec_string.into_iter().map(ListItem::new).collect();    

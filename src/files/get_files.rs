@@ -14,9 +14,8 @@ pub fn get_mp3_files() -> Vec<String> {
         .into_iter()
         .filter_map(|file| file.ok())
     {
-        if file.path().display().to_string().contains(".mp3") {
+        if file.path().display().to_string().ends_with(".mp3") {
             file_list.push(file.path().display().to_string());
-            // file_list.push(create_song_data(&file.path().display().to_string().to_string()));
         }
     }
 
