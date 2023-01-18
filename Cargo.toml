@@ -13,3 +13,4 @@ dirs = "4.0.0"
 audiotags = "0.4.1"
 tui = "0.19"
 crossterm = "0.25"
+clap = { version = "4.0.29", features = ["derive"] }

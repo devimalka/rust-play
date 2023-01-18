@@ -9,16 +9,24 @@ pub struct SongStruct {
 }
 
 pub fn create_song_struct(file_path: &str) -> SongStruct {
-
     let tags = Tag::default().read_from_path(file_path);
 
     let binding = tags.expect("Unable to find Tags");
-    let title = binding.title().map(|title| title.to_owned()).unwrap_or_else(||Path::new(file_path).file_name().unwrap().to_str().unwrap().into());
-    let artist = binding.artist().map(|artist| artist.to_owned()).unwrap_or_else(|| "Artist Not Found".to_string());
-
-
-
-
+    let title = binding
+        .title()
+        .map(|title| title.to_owned())
+        .unwrap_or_else(|| {
+            Path::new(file_path)
+                .file_name()
+                .unwrap()
+                .to_str()
+                .unwrap()
+                .into()
+        });
+    let artist = binding
+        .artist()
+        .map(|artist| artist.to_owned())
+        .unwrap_or_else(|| "Artist Not Found".to_string());
 
     SongStruct {
         file_path: file_path.to_string(),
